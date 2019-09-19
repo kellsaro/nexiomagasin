@@ -1,4 +1,4 @@
-package com.nexio.magasin.integration.repository;
+package com.nexio.magasin.test.unit.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,33 +14,29 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.nexio.magasin.domain.entity.Cart;
 import com.nexio.magasin.domain.entity.User;
 import com.nexio.magasin.domain.repository.CartRepository;
-import com.nexio.magasin.domain.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class CartRepositoryIntegrationTest {
+public class CartRepositoryTest {
 
 	@Autowired
     private TestEntityManager entityManager;
  
     @Autowired
     private CartRepository cartRepository;
-    
-    @Autowired
-    private UserRepository userRepository;
  
     @Test
     public void whenFindWithUserById_thenReturnCartWithUser() {
     	
-        // given a user found in database (see data.sql)
-    	Optional<User> optUser = userRepository.findByEmail("user@nexio.com");
-    	assertThat(optUser.isPresent()).isEqualTo(true);
-    	
-    	User u = optUser.get();
+        // given a user
+    	User newUser = new User();
+    	newUser.setEmail("new_user@nexio.com");
+    	newUser.setPassword("myverysecurepassword");
+    	newUser = entityManager.persist(newUser);
     	
     	// and an associated cart
         Cart cart = new Cart();
-        cart.setUser(u);
+        cart.setUser(newUser);
         cart = entityManager.persist(cart);
         entityManager.flush();
      
@@ -54,6 +50,6 @@ public class CartRepositoryIntegrationTest {
         
         // and there is a user
         assertThat(foundCart.getUser()).isNotNull();
-        assertThat(foundCart.getUser().getEmail()).isEqualTo(u.getEmail());
+        assertThat(foundCart.getUser().getEmail()).isEqualTo(newUser.getEmail());
     }
 }

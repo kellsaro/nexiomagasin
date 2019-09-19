@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nexio.magasin.business.service.AddProductToCartService;
 import com.nexio.magasin.business.service.RemoveProductFromCartService;
 import com.nexio.magasin.domain.entity.ProductItem;
-import com.nexio.magasin.domain.repository.CartRepository;
 import com.nexio.magasin.web.rest.dto.ProductIdDTO;
 import com.nexio.magasin.web.rest.dto.ProductItemDTO;
 import com.nexio.magasin.web.rest.util.CookieUtil;
@@ -31,9 +30,6 @@ public class ProductItemController {
 	
 	@Autowired
 	private RemoveProductFromCartService removeProductFromCartService;
-	
-	@Autowired
-	private CartRepository cartRepository;
 	
 	@Autowired
 	private CookieUtil cookieUtil;
@@ -52,14 +48,12 @@ public class ProductItemController {
         	
         	ProductItem productItem = optProductItem.get();
         	
-        	if (cartId == null) {
-        		
-	        	Map<String, Object> cookies = cookieUtil.buildCookiesMap();
-	        	
-	        	cookies.put("cart_id", productItem.getCart().getId());
-	        	
-	        	cookieUtil.setCookies(response, cookies.entrySet());
-        	}
+        	
+        	Map<String, Object> cookies = cookieUtil.buildCookiesMap();
+        	
+        	cookies.put("cart_id", productItem.getCart().getId());
+        	
+        	cookieUtil.setCookies(response, cookies.entrySet());
         	
         	return new ResponseEntity<>(new ProductItemDTO(productItem), HttpStatus.CREATED);
         }

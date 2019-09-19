@@ -2,7 +2,6 @@ package com.nexio.magasin.web.rest.util;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 

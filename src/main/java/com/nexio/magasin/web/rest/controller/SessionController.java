@@ -18,10 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nexio.magasin.business.service.DeleteUserSessionService;
 import com.nexio.magasin.business.service.GetUserService;
 import com.nexio.magasin.business.service.LinkCartWithUserService;
-import com.nexio.magasin.domain.entity.Cart;
 import com.nexio.magasin.domain.entity.User;
-import com.nexio.magasin.domain.repository.CartRepository;
-import com.nexio.magasin.domain.repository.ProductItemRepository;
 import com.nexio.magasin.domain.repository.UserRepository;
 import com.nexio.magasin.web.rest.dto.CredentialDTO;
 import com.nexio.magasin.web.rest.util.CookieUtil;
@@ -37,12 +34,6 @@ public class SessionController {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
-	@Autowired
-	private CartRepository cartRepository;
-	
-	@Autowired
-	private ProductItemRepository productItemRepository;
 	
 	@Autowired
 	private CookieUtil cookieUtil;
