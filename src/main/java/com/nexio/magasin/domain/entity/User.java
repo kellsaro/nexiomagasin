@@ -10,6 +10,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import lombok.Data;
 
 @Entity
@@ -35,4 +37,8 @@ public class User {
 	
 	@Column(name = "session_token")
 	private String sessionToken;
+	
+	public void setPassword(String password) {
+		this.hashedPassword = DigestUtils.sha256Hex(password);
+	}
 }
