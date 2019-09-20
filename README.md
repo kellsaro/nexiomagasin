@@ -44,4 +44,4 @@ Le credential de conection sont: utilisateur `admin` e mot de passe `motdepasse`
 Le base de donnés est initializé avec donnés du 13 produits et un utilizateur. 
 Ces données sont utilisées à titre d'exemple. Vous pouvez supprimer les données du fichier `src/main/resources/data.sql`.
 
-A `http://localhost:8080/swagger-ui.html#/` vous pouvéz voir la documentation del API.
+A `http://localhost:8080/swagger-ui.html#/` vous pouvez consulter la documentation de l'API.
