@@ -7,12 +7,20 @@
 * Afficher le contenu du panier
 * (Bonus) Connexion et déconnexion à un compte utilisateur
 
-# Requeriment
+
+* afficher un catalogue de produits
+* Afficher le détail d'un produit
+* Ajouter un produit au panier
+* Enlever un produit du panier
+* Afficher le contenu du panier
+* (Bonus) Connexxion et d'econnexion à un compte utilisateur
+
+## Requeriment
 
 * Java version 8
 * Apache Maven version 3.6.2 ou ultérieure
 
-# Installation
+## Installation
 * Clon this repository
 * Go to the direcotory created and execute: `mvn clean install package`
   This command will download dependencies, run the tests and compile the application.
@@ -20,7 +28,7 @@
 # Run the test
 * Execute: `mvn test`
 
-# Run the application
+## Run the application
 * Execute: `java -jar target/magasin-0.0.1-SNAPSHOT.jar`
 
   On `http://localhost:8080` you will have acces to the different enpoints:
