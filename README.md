@@ -19,9 +19,9 @@ Produisez un api REST qui permet les scénarios suivants:
 * Cloner ce dépôt
 * Allez dans le répertoire créez et exécutez le commande: **`mvn clean install package`**
 * Cette commande va:
-** télécharger les dépendances 
-** exécuter les tests 
-** compilez l'application.
+    - télécharger les dépendances 
+    - exécuter les tests 
+    - compilez l'application.
 
 ## Lancer le test
 * Exécuter: **`mvn test`**
