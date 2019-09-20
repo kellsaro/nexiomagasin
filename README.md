@@ -8,7 +8,7 @@ Produisez un api REST qui permet les scénarios suivants:
 * Ajouter un produit au panier
 * Enlever un produit du panier
 * Afficher le contenu du panier
-* (Bonus) Connexxion et d'econnexion à un compte utilisateur
+* (Bonus) Connexion et déconnexion à un compte utilisateur
 
 ## Requeriment
 
