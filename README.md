@@ -1,6 +1,6 @@
 # Nexiomagasin
 
-Nexiomagasin est une solution au problème suivant le ènoncè:
+Nexiomagasin est une solution au problème suivant:
 
 Produisez un api REST qui permet les scénarios suivants: 
 * Afficher un catalogue de produits
@@ -17,7 +17,7 @@ Produisez un api REST qui permet les scénarios suivants:
 
 ## Installation
 * Cloner ce dépôt
-* Allez dans le répertoire crée et exécutez: `mvn clean install package`
+* Allez dans le répertoire créez et exécutez le commande: `mvn clean install package`
   Cette commande va télécharger les dépendances, exécuter les tests et compiler l'application.
 
 ## Lancer le test
