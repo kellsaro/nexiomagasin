@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nexio.magasin.business.service.AddProductToCartService;
@@ -22,7 +23,11 @@ import com.nexio.magasin.web.rest.dto.ProductIdDTO;
 import com.nexio.magasin.web.rest.dto.ProductItemDTO;
 import com.nexio.magasin.web.rest.util.CookieUtil;
 
+import io.swagger.annotations.Api;
+
 @RestController
+@RequestMapping("/api/v1")
+@Api(value="Contrôleur d' ajouter et enlever les produits du panier", description="Operations d' ajouter et enlever les produits du panier")
 public class ProductItemController {
 	
 	@Autowired
@@ -39,7 +44,7 @@ public class ProductItemController {
 	 * @param productId
 	 * @return
 	 */
-    @PostMapping("/api/v1/product_items")
+    @PostMapping("/product_items")
     public ResponseEntity<ProductItemDTO> create(@RequestBody ProductIdDTO product, @CookieValue(required = false, name = "cart_id") Long cartId, HttpServletResponse response) {
     
     	Optional<ProductItem> optProductItem = addProductToCartService.execute(product.getId(), cartId);
@@ -64,7 +69,7 @@ public class ProductItemController {
 	/**
 	 *  Enleve un produit du panier
 	 */
-    @DeleteMapping("/api/v1/product_items")
+    @DeleteMapping("/product_items")
     public ResponseEntity<ProductItem> delete(@RequestBody ProductIdDTO product, @CookieValue(required = true, name = "cart_id") Long cartId, HttpServletRequest request, HttpServletResponse response) {
     	
     	if (cartId == null) return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);

@@ -9,13 +9,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nexio.magasin.business.service.GetProductItemsByCartService;
 import com.nexio.magasin.domain.entity.ProductItem;
 import com.nexio.magasin.web.rest.dto.ProductItemDTO;
 
+import io.swagger.annotations.Api;
+
 @RestController
+@RequestMapping("/api/v1")
+@Api(value="Contrôleur de panier", description="Operations de afficher le contenu du panier")
 public class CartController {
 	
 	@Autowired
@@ -24,8 +29,8 @@ public class CartController {
 	/**
 	 *  Affiche le contenu du panier
 	 */
-	@GetMapping("/api/v1/carts/{id}")
-    public ResponseEntity<List<ProductItemDTO>> showCart(@PathVariable Long id) {
+	@GetMapping("/carts/{id}")
+    public ResponseEntity<List<ProductItemDTO>> show(@PathVariable Long id) {
 		
 		List<ProductItem> list = new ArrayList<>();
 		

@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,11 @@ import com.nexio.magasin.domain.entity.Product;
 import com.nexio.magasin.domain.repository.ProductRepository;
 import com.nexio.magasin.web.rest.dto.ProductListDTO;
 
+import io.swagger.annotations.Api;
+
 @RestController
+@RequestMapping("/api/v1")
+@Api(value="Contrôleur de produits", description="Operations de afficher un catalogue et le détail de produits")
 public class ProductController {
 	
 	@Autowired
@@ -27,7 +32,7 @@ public class ProductController {
 	 * Affiche un catalogue de produits
 	 * @return
 	 */
-	@GetMapping(value = "/api/v1/products")
+	@GetMapping(value = "/products")
     public Page<ProductListDTO> index(@RequestParam(defaultValue = "0", required=false) int page, 
     		                          @RequestParam(defaultValue = "10", required=false) int size) {
 		
@@ -45,8 +50,8 @@ public class ProductController {
      * @param id
      * @return
      */
-    @GetMapping("/api/v1/products/{id}")
-    public ResponseEntity<Product> findOne(@PathVariable Long id){
+    @GetMapping("/products/{id}")
+    public ResponseEntity<Product> show(@PathVariable Long id){
     	
         Optional<Product> product = productRepository.findById(id);
         

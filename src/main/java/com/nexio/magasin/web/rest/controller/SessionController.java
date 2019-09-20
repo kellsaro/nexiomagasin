@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nexio.magasin.business.service.DeleteUserSessionService;
@@ -23,7 +24,11 @@ import com.nexio.magasin.domain.repository.UserRepository;
 import com.nexio.magasin.web.rest.dto.CredentialDTO;
 import com.nexio.magasin.web.rest.util.CookieUtil;
 
+import io.swagger.annotations.Api;
+
 @RestController
+@RequestMapping("/api/v1")
+@Api(value="Contrôleur de session", description="Operations de connexion et déconnexion à un compte utilisateur")
 public class SessionController {
 	
 	@Autowired
@@ -41,7 +46,7 @@ public class SessionController {
 	@Autowired
 	private DeleteUserSessionService deleteUserSessionService;
 
-	@PostMapping("/api/v1/login")
+	@PostMapping("/login")
 	public ResponseEntity<?> create(@RequestBody CredentialDTO credentials, @CookieValue(required = false, name = "cart_id") Long cartId, HttpServletResponse response) {
 		
 		Optional<User> optUser = getUserService.execute(credentials.getEmail(), credentials.getPassword());
@@ -69,7 +74,7 @@ public class SessionController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@DeleteMapping("/api/v1/logout")
+	@DeleteMapping("/logout")
 	public ResponseEntity<?> delete(@CookieValue(required = true, name = "token") String token) {
 		
 		boolean deleted = deleteUserSessionService.execute(token);
