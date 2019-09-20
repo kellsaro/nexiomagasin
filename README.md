@@ -1,6 +1,6 @@
 # Nexiomagasin
 
-Nexiomagasin est una solution à un exercism avec le ènoncè:
+Nexiomagasin est une solution au problème suivant le ènoncè:
 
 Produisez un api REST qui permet les scénarios suivants: 
 * Afficher un catalogue de produits
