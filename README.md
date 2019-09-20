@@ -1,13 +1,8 @@
 # Nexiomagasin
 
-* Afficher un catalogue de produits
-* Afficher le détail d’un produit
-* Ajouter un produit au panier
-* Enlever un produit du panier
-* Afficher le contenu du panier
-* (Bonus) Connexion et déconnexion à un compte utilisateur
+Nexiomagasin est una solution à un exercism avec le ènoncè:
 
-
+Produisez un api REST qui permet les scénarios suivants: 
 * afficher un catalogue de produits
 * Afficher le détail d'un produit
 * Ajouter un produit au panier
