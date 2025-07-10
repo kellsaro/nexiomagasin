@@ -10,6 +10,8 @@ Produisez un api REST qui permet les scénarios suivants:
 * Afficher le contenu du panier
 * (Bonus) Connexion et déconnexion à un compte utilisateur
 
+Vous trouverez plus d'informations sur la description de ce problème dans le dossier docs/
+
 ## Requeriment
 
 * Java version 8
